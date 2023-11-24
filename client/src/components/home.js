@@ -1,7 +1,7 @@
 import React from 'react';
-import { IoMdAddCircle, IoIosCheckmarkCircle, IoIosArrowRoundForward } from 'react-icons/io';
+import { IoIosCheckmarkCircle } from 'react-icons/io';
 
-const Hero = () => {
+const Home = () => {
     const stats = [
         { value: '5M+', text: 'Satisfied Customers' },
         { value: '25K+', text: 'Happy Users' },
@@ -11,7 +11,7 @@ const Hero = () => {
 
     return (
         <div>
-            {/* Hero Section */}
+            {/* Home Section */}
             <section className="h-[850px] w-full bg-right bg-cover bg-no-repeat relative text-white pt-[225px] pb-[254px] mb-12 lg:bg-center lg:mb-28" style={{ backgroundImage: "url('bg-img.png')" }}>
                 <div className='container mx-auto text-center'>
                     <h1 className='text-2xl mx-auto font-semibold mb-[30px] lg:text-[64px] lg: leading-tight lg:max-w-[888px]'>Creative Home Simplify your Living</h1>
@@ -79,4 +79,4 @@ const Hero = () => {
     )
 }
 
-export default Hero;
+export default Home;

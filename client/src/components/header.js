@@ -2,6 +2,7 @@ import React, {useState,useEffect}from 'react';
 import { Link } from "react-router-dom";
 import {CgMenuRight, CgClose} from 'react-icons/cg';
 
+
 const Header = () => {
   const [bg, setBg] = useState(false);
   const [mobileNav, setMobileNav] = useState(false)
@@ -12,23 +13,23 @@ const Header = () => {
     })
   })
   return(
-    <header className={`${bg ? 'bg-black py-4 lg:py-6' : 'bg-none'} fixed left-0 w-full py-8 z-10 transition-all duration-200`}>
+    <header className={`${bg ? 'bg-gray-200 py-4 lg:py-6' : 'bg-none'} fixed left-0 w-full py-8 z-10 transition-all duration-200`}>
       <div className='container mx-auto'>
         <div className='flex justify-between items-center'>
-          <a href="#" alt='logo' className="text-white text-2xl font-semibold">Furniture Haven</a>
-          <div onClick={() => setMobileNav(!mobileNav)}className='text-2xl text-white md:hidden lg:text-3xl cursor-pointer'>{mobileNav ? <CgClose /> : <CgMenuRight />}</div>
+          <a href="#" alt='logo' className="text-black text-2xl font-semibold">Furniture Haven</a>
+          <div onClick={() => setMobileNav(!mobileNav)}className='text-2xl text-black md:hidden lg:text-3xl cursor-pointer'>{mobileNav ? <CgClose /> : <CgMenuRight />}</div>
         
         
         <nav className='hidden md:flex'>
-          <ul className=' flex space-x-14 uppercase text-white transition-all'>
-            <li className='text-white hover:text-gray-300 hover:border-b'><Link to='/home'>Home</Link></li>
-            <li className='text-white hover:text-gray-300 hover:border-b'><Link to='/products'>Products</Link></li>
-            <li className='text-white hover:text-gray-300 hover:border-b'><Link to='/contact'>Contact</Link></li>
-            <li className='text-white hover:text-gray-300 hover:border-b'><Link to='/cart'>Cart</Link></li>
+          <ul className=' flex space-x-14 uppercase text-black transition-all'>
+            <li className='text-black hover:text-teal-500 hover:border-b'><Link to='/home'>Home</Link></li>
+            <li className='text-black hover:text-teal-500 hover:border-b'><Link to='/products'>Products</Link></li>
+            <li className='text-black hover:text-teal-500 hover:border-b'><Link to='/contact'>Contact</Link></li>
+            <li className='text-black hover:text-teal-500 hover:border-b'><Link to='/cart'>Cart</Link></li>
           </ul>
         </nav>
 
-        <div>
+        <div className='hidden md:flex'>
         <button className="bg-teal-700 font-medium text-white rounded-full px-7 py-2 hover:bg-teal-900"><Link to='/login'>Login</Link></button>
         </div>
 
