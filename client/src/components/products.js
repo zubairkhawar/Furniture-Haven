@@ -1,9 +1,14 @@
+import React from 'react';
+import { useCart } from './CartContext';
+
+
 const products = [
     {
       id: 1,
       name: 'Olive Green Sofa Chair',
       href: '#',
-      price: 'Rs 48000',
+      priceOriginal: 'Rs 60000',
+      price: '48000',
       imageSrc: 'F.jpg',
       imageAlt: 'Olive drab green sofa chair',
     },
@@ -11,7 +16,8 @@ const products = [
       id: 2,
       name: 'Wooden Chair',
       href: '#',
-      price: 'Rs 35000',
+      priceOriginal: 'Rs 50000',
+      price: '35000',
       imageSrc: 'Chair.jpg',
       imageAlt: 'Wooden Chair',
     },
@@ -19,15 +25,17 @@ const products = [
       id: 3,
       name: 'Brown Leather Two Seater',
       href: '#',
-      price: 'Rs 89000',
+      priceOriginal: 'Rs 99000',
+      price: '89000',
       imageSrc: 'two-seater.jpeg',
       imageAlt: 'Two Seater Sofa',
     },
     {
       id: 4,
-      name: 'Blue Sof Chair',
+      name: 'Blue Sofa Chair',
       href: '#',
-      price: 'Rs 35000',
+      priceOriginal: 'Rs 50000',
+      price: '35000',
       imageSrc: 'blue.avif',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
@@ -35,7 +43,8 @@ const products = [
         id: 5,
         name: 'Yellow Sofa Chair',
         href: '#',
-        price: 'Rs 48000',
+        priceOriginal: 'Rs 60000',
+        price: '48000',
         imageSrc: 'yellow.avif',
         imageAlt: 'Yellow Sofa Chair',
       },
@@ -43,7 +52,8 @@ const products = [
         id: 6,
         name: 'Pink Sofa Chair',
         href: '#',
-        price: 'Rs 45000',
+        priceOriginal: 'Rs 58000',
+        price: '45000',
         imageSrc: 'pink.jpeg',
         imageAlt: 'Pink Sofa Chair',
       },
@@ -51,7 +61,8 @@ const products = [
         id: 7,
         name: 'Wooden Sideboard Table',
         href: '#',
-        price: 'Rs 29000',
+        priceOriginal: 'Rs 50000',
+        price: '29000',
         imageSrc: 'table.avif',
         imageAlt: 'Wooden Sideboard Table with books',
       },
@@ -59,7 +70,8 @@ const products = [
         id: 8,
         name: 'Camel Side Table',
         href: '#',
-        price: 'Rs 12000',
+        priceOriginal: 'Rs 30000',
+        price: '12000',
         imageSrc: 'product-8.png',
         imageAlt: 'Camel sidetable',
       },
@@ -67,7 +79,8 @@ const products = [
         id: 9,
         name: 'Olive Green Three Seater Sofa',
         href: '#',
-        price: 'Rs 48000',
+        priceOriginal: 'Rs 60000',
+        price: '48000',
         imageSrc: 'olive-green.avif',
         imageAlt: 'Olive Green Three Seater Sofa',
       },
@@ -75,7 +88,8 @@ const products = [
         id: 10,
         name: 'Cream Armchair',
         href: '#',
-        price: 'Rs 35000',
+        priceOriginal: 'Rs 50000',
+        price: '35000',
         imageSrc: 'cream.webp',
         imageAlt: 'Wooden Chair',
       },
@@ -83,7 +97,8 @@ const products = [
         id: 11,
         name: 'Brown Leather Two Seater',
         href: '#',
-        price: 'Rs 89000',
+        priceOriginal: 'Rs 99000',
+        price: '89000',
         imageSrc: 'two-seater.jpeg',
         imageAlt: 'Two Seater Sofa',
       },
@@ -91,7 +106,8 @@ const products = [
         id: 12,
         name: 'Blue Sof Chair',
         href: '#',
-        price: 'Rs 35000',
+        priceOriginal: 'Rs 50000',
+        price: '35000',
         imageSrc: 'blue.avif',
         imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
       },
@@ -99,7 +115,8 @@ const products = [
           id: 13,
           name: 'Yellow Sofa Chair',
           href: '#',
-          price: 'Rs 48000',
+          priceOriginal: 'Rs 70000',
+          price: '48000',
           imageSrc: 'yellow.avif',
           imageAlt: 'Yellow Sofa Chair',
         },
@@ -107,7 +124,8 @@ const products = [
           id: 14,
           name: 'Arm Chair Pillow',
           href: '#',
-          price: 'Rs 45000',
+          priceOriginal: 'Rs 55000',
+          price: '45000',
           imageSrc: 'armchair.avif',
           imageAlt: 'Arm Chair pillow',
         },
@@ -115,7 +133,8 @@ const products = [
           id: 15,
           name: 'Wooden Sideboard Table',
           href: '#',
-          price: 'Rs 29000',
+          priceOriginal: 'Rs 50000',
+          price: '29000',
           imageSrc: 'table.avif',
           imageAlt: 'Wooden Sideboard Table with books',
         },
@@ -123,7 +142,8 @@ const products = [
           id: 16,
           name: 'Camel Side Table',
           href: '#',
-          price: 'Rs 12000',
+          priceOriginal: 'Rs 20000',
+          price: '12000',
           imageSrc: 'product-8.png',
           imageAlt: 'Camel sidetable',
         },
@@ -131,7 +151,13 @@ const products = [
     
   ]
   
- const Products = () => {
+  const Products = () => {
+    const { addToCart } = useCart();
+  
+    const handleAddToCart = (product) => {
+      addToCart(product);
+    };
+  
     return (
       <div className="bg-stone-100 pt-20">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -139,22 +165,22 @@ const products = [
   
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <a key={product.id} href={product.href} className="group relative">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                  <img
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
-                  />
+                  <img src={product.imageSrc} alt={product.imageAlt} />
+                  <div className="absolute h-full w-full object-cover object-center group-hover:opacity-100 flex items-center justify-center -bottom-10 group-hover:bottom-0 transition-all duration-300 bg-black/20 opacity-0">
+                    <button className="bg-teal-700 rounded-lg text-white py-2 px-5 hover:bg-teal-900 transition-all duration-300" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                  </div>
                 </div>
-                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+                <h3 className="mt-3 text-xl text-gray-700">{product.name}</h3>
+                <del className="text-red-700 text-md">{product.priceOriginal} </del>
+                <p className="mt-2 text-lg font-medium text-gray-900 inline-block">{`Rs ${product.price}`}</p>
               </a>
             ))}
           </div>
         </div>
       </div>
-      
-    )
+    );
   }
-  export default Products
+  
+  export default Products;
