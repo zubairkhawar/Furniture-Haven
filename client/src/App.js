@@ -10,13 +10,13 @@ import Login from './components/login.js';
 import SignUp from './components/signup.js';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { CartProvider } from './components/CartContext.js'; // Import the CartProvider
+import { CartProvider } from './components/CartContext.js'; 
 
 function App() {
   return (
     <div className="w-full max-w-[1440px] mx-auto bg-white h-screen">
       <BrowserRouter>
-        <CartProvider> {/* Wrap the entire app with CartProvider */}
+        <CartProvider> 
           <Header />
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />

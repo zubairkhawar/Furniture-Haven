@@ -1,5 +1,6 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useCart } from './CartContext';
+import axios from 'axios';
 
 
 const products = [
@@ -152,6 +153,8 @@ const products = [
   ]
   
   const Products = () => {
+
+    
     const { addToCart } = useCart();
   
     const handleAddToCart = (product) => {
